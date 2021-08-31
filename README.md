@@ -7,14 +7,14 @@ Example:
 -- insert minified library here
 
 local myGame = WORLD() -- creates the workspace
-local myPlayer = PLAYER(myGame, 10, 10) -- creates the player object
+local myPlayer = myGame.player({x = 0, y = 0}) -- creates the player object
 
 myGame.on("UPDATE", function() -- invoked when the game content is updated
-    myPlayer.draw() -- draws the player.
+    rect(myPlayer.x, myPlayer.y, 10, 10, 12) -- draws the player.
     print("X: "..myPlayer.x..", Y: "..myPlayer.y, 1, 1, 12) -- prints the player's position to screen
 end)
 
-myGame.on("BUTTON_PRESSED", function(button) -- invoked when the player presses a key.
+myGame.on("BUTTON", function(button) -- invoked when the player presses a key.
     -- handles controls
     if button == 0 then
 		myPlayer.y = myPlayer.y - 1
@@ -39,21 +39,26 @@ myGame.run() -- runs the game
 # Installation
 
 If you want contribute to the project (e.g: for making a pull request) copy the file 'world.lua'
+
 Otherwise if you want to use it in your game, copy 'world.min.lua', its minified so it will need less space on your code.
 
 # Q&A
 
 Q: How i can contribute?
+
 A: Making a pull request, forking it, or simply in the game's code put this comment on your game's code:
 ```lua
 -- using: world library
 ```
 
 Q: How you had that idea?
+
 A: I feeled that coding in TIC-80 is messy.
 
 Q: What are your expectations to the project?
+
 A: Nothing much.
 
 Q: Are you planning to make a documentation/wiki?
+
 A: Yes but i have other things to care about in my life.
